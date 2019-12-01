@@ -1,4 +1,4 @@
-import api from '../utils/axiosWithAuth';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 export const SET_LOADING = 'SET_LOADING';
 export const FETCH_LISTS_START = 'FETCH_LISTS_START';
@@ -41,7 +41,7 @@ export const CLEAR_CURRENT_ITEM = 'CLEAR_CURRENT_ITEM';
 //GET all lists
 export const fetchLists = () => dispatch => {
   dispatch({ type: FETCH_LISTS_START })
-  api
+  axiosWithAuth
     .get('/lists')
     .then(response => {
       dispatch({
@@ -62,7 +62,7 @@ export const fetchLists = () => dispatch => {
 // GET list by id
 export const fetchList = selectedList => dispatch => {
   dispatch({ type: FETCH_LIST_START })
-  api
+  axiosWithAuth
     .get(`/lists/${selectedList.id}`, selectedList)
     .then(response => {
       dispatch({
@@ -83,7 +83,7 @@ export const fetchList = selectedList => dispatch => {
 // POST new list
 export const addList = newList => dispatch => {
   dispatch({ type: ADD_LIST_START })
-  api
+  axiosWithAuth
     .post('/lists', newList)
     .then(response => {
       dispatch({
@@ -104,7 +104,7 @@ export const addList = newList => dispatch => {
 // PUT (update/edit) list
 export const updateList = updateList => dispatch => {
   dispatch({ type: UPDATE_LIST_START})
-  api
+  axiosWithAuth
     .put(`/lists/${updateList.id}`, updateList)
     .then(response => {
       dispatch({
@@ -125,7 +125,7 @@ export const updateList = updateList => dispatch => {
 // DELETE list
 export const deleteList = deleteList => dispatch => {
   dispatch({ type: DELETE_LIST_START})
-  api
+  axiosWithAuth
     .delete(`/lists/${deleteList.id}`, deleteList)
     .then(response => {
       dispatch({
@@ -146,7 +146,7 @@ export const deleteList = deleteList => dispatch => {
 // POST (add) item
 export const addItem = newItem => dispatch => {
   dispatch({ type: ADD_ITEM_START})
-  api
+  axiosWithAuth
     .post('/lists/:id/items', newItem)
     .then(response => {
       dispatch({
@@ -167,7 +167,7 @@ export const addItem = newItem => dispatch => {
 // PUT (update/edit) item by id
 export const updateItem = updateItem => dispatch => {
   dispatch({ type: UPDATE_ITEM_START})
-  api
+  axiosWithAuth
     .put(`/lists/:id/items/${updateItem.id}`, updateItem)
     .then(response => {
       dispatch({
@@ -188,7 +188,7 @@ export const updateItem = updateItem => dispatch => {
 // DELETE item by id
 export const deleteItem = deleteItem => dispatch => {
   dispatch({ type: DELETE_ITEM_START})
-  api
+  axiosWithAuth
     .delete(`/lists/:id/items/${deleteItem.id}`, deleteItem)
     .then(response => {
       dispatch({
@@ -209,7 +209,7 @@ export const deleteItem = deleteItem => dispatch => {
 // POST (add) comment
 export const addComment = newComment => dispatch => {
   dispatch({ type: ADD_COMMENT_START})
-  api
+  axiosWithAuth
     .post('/lists/:id/comments', newComment)
     .then(response => {
       dispatch({
@@ -230,7 +230,7 @@ export const addComment = newComment => dispatch => {
 // PUT (update/edit) comment
 export const updateComment = updateComment => dispatch => {
   dispatch({ type: UPDATE_COMMENT_START})
-  api
+  axiosWithAuth
     .put(`/lists/:id/comments/${updateComment.id}`, updateComment)
     .then(response => {
       dispatch({
@@ -251,7 +251,7 @@ export const updateComment = updateComment => dispatch => {
 // DELETE comment by id
 export const deleteComment = deleteComment => dispatch => {
   dispatch({ type: DELETE_COMMENT_START})
-  api
+  axiosWithAuth
     .delete(`/lists/:id/comments/${deleteComment.id}`, deleteComment)
     .then(response => {
       dispatch({

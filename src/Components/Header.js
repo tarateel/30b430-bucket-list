@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import api from "../utils/axiosWithAuth"
+import axiosWithAuth from "../utils/axiosWithAuth"
 import {Button} from "reactstrap"
 
 function Header() {
@@ -18,7 +18,7 @@ function Header() {
           </ul>
         </nav>
         <Button onClick={()=>{
-          api.get('/auth/logout', { username: 'goodusername', password: 'goodpassword' })
+          axiosWithAuth.get('/auth/logout', { username: 'goodusername', password: 'goodpassword' })
           .then(response => console.log(response))
         }}>
           Logout

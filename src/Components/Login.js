@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { api } from '../utils/axiosWithAuth';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 const Login = (props) => {
   console.log(props, 'Login.js, line 4, props passed in?')
@@ -21,7 +21,7 @@ const Login = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    api()
+    axiosWithAuth()
       .post('/api/login', user)
       .then(response => {
         console.log(response.data, 'Login.js, line 27, submission response')
@@ -147,7 +147,7 @@ export default Login;
 // //   handleSubmit: values => {
 // //     console.log(values, 'ksdnksdn');
 // //     axios
-// //       .post("https://buildweek30before30.herokuapp.com/api", values)
+// //       .post("https://buildweek30before30.herokuapp.com/auth", values)
 // //       //if response is valid then log this..
 // //       .then(response => {
 // //         console.log(response);

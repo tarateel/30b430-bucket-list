@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import api from "../utils/axiosWithAuth";
+import axiosWithAuth from "../utils/axiosWithAuth";
 import {Button} from "reactstrap"
 
 const Register = ({ touched, errors, status, handleSubmit }) => {
@@ -59,7 +59,7 @@ const FormikRegister = withFormik({
   }),
 
   handleSubmit(values, { setStatus }) {
-    api
+    axiosWithAuth
       .post("/auth/register", values)
       .then(response => {
         console.log(response);
