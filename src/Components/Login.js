@@ -4,13 +4,11 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 const Login = (props) => {
   console.log(props, 'Login.js, line 4, props passed in?')
   // make a post request to retrieve a token from the api
-  // when you have handled the token, navigate to the BubblePage route
+
   const [user, setUser] = useState({
     username: '',
     password: ''
   });
-  // goodusername
-  // goodpassword
 
   const handleChange = (event) => {
 		setUser({
@@ -22,11 +20,11 @@ const Login = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     axiosWithAuth()
-      .post('/api/login', user)
+      .post('/auth/login', user)
       .then(response => {
         console.log(response.data, 'Login.js, line 27, submission response')
         localStorage.setItem('token', response.data.payload)
-        props.history.push('/PrivateRoute')
+        props.history.push('/Home')
       })
       .catch(error => {
         console.log(error,
@@ -37,7 +35,7 @@ const Login = (props) => {
   
   return (
     <>
-      <h1>Please log in</h1>
+      <h4>Please enter your username and password to log in.</h4>
       <form className="form" onSubmit={handleSubmit}>
 			  <input
           type="text"
@@ -47,7 +45,7 @@ const Login = (props) => {
           onChange={handleChange}
         />
 			  <input
-          type="password"
+          type="text"
           name="password"
           placeholder="Password"
           value={user.password}

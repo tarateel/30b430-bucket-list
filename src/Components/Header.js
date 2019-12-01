@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import axiosWithAuth from "../utils/axiosWithAuth"
-import {Button} from "reactstrap"
+import axiosWithAuth from "../utils/axiosWithAuth";
+import { Button } from 'reactstrap';
 
 function Header() {
   return (
@@ -10,19 +10,21 @@ function Header() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Login</Link>
+              <Link to="/"><h3>Log in</h3></Link>
             </li>
             <li>
-              <Link to="/list">Lists</Link>
+              <Link to="/register"><h3>Sign up</h3></Link>
+            </li>
+            <li>
+              <Button onClick = {() => {
+                axiosWithAuth()
+                  .get('/auth/logout', { username: "", password:"" })
+                }}>
+                Logout
+              </Button>
             </li>
           </ul>
         </nav>
-        <Button onClick={()=>{
-          axiosWithAuth.get('/auth/logout', { username: 'goodusername', password: 'goodpassword' })
-          .then(response => console.log(response))
-        }}>
-          Logout
-        </Button>
       </header>
     </div>
   );
