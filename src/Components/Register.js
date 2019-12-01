@@ -24,7 +24,7 @@ const Register = (props) => {
     .then(response => {
       console.log(response.data, 'Register.js, line 26, submission response')
       localStorage.setItem('token', response.data.payload)
-      props.history.push('/PrivateRoute')
+      props.history.push('/Home')
     })
     .catch(error => {
       console.log(error, 'Register.js, error signing up');
