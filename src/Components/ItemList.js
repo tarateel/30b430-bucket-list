@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchLists } from '../actions/itemActions';
+import { fetchList } from '../actions/itemActions';
 import ItemForm from './ItemForm';
 import Item from './Item';
 
 const ItemList = (props) => {
   useEffect((props) => {
-    props.fetchLists()
+    props.fetchList()
   }, []);
   console.log(props, 'ItemList.js, line 11');
 
@@ -21,12 +21,12 @@ const ItemList = (props) => {
 const mapStateToProps = state => {
   return {
     item: state.item,
-    fetchItem: state.fetchItem,
+    fetchList: state.fetchList,
     error: state.error
   }
 };
 
 export default connect(
   mapStateToProps,
-  { fetchLists }
+  { fetchList }
 )(ItemList);
