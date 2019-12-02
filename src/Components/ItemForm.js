@@ -35,7 +35,6 @@ function ItemForm(props) {
     <form className="add-item-form" onSubmit={handleAddItem}>
       <h3>Add new Item</h3>
       <input
-        className="input"
         value={item.name}
         name="name"
         type="text"
@@ -43,15 +42,13 @@ function ItemForm(props) {
         onChange={handleInputChange}
       />
       <input
-        className="input"
         value={item.description}
-        name="dexcription"
+        name="description"
         type="text"
         placeholder="description"
         onChange={handleInputChange}
       />
       <input
-        className="input"
         value={item.deadline}
         name="deadline"
         type="text"

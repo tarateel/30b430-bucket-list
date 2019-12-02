@@ -1,24 +1,16 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchList } from '../actions/itemActions';
+import { fetchLists } from '../actions/itemActions';
 import ItemForm from './ItemForm';
 import Item from './Item';
 
-const initList = {
-  name: '',
-  description: '',
-  deadline: null,
-  is_private: true,
-  created_by: '',
-  comments: [],
-  items: ''
-};
 
-const ItemList = (props) => {
+
+const ItemList = props => {
   console.log(props, 'ItemList.js, line 11');
   // eslint-disable-next-line
-  useEffect((props) => {
-    props.fetchList()
+  useEffect(() => {
+    props.fetchLists()
   }, []);
 
   return (
@@ -39,5 +31,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchList }
+  { fetchLists }
 )(ItemList);

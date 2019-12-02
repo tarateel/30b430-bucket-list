@@ -71,7 +71,7 @@ export const fetchList = selectedList => dispatch => {
       })
     })
     .catch(error => {
-      console.log(error.response.error, 'actions/index.js, line 29, error fetching lists');
+      console.log(error.response.error, 'itemActions.js, line 29, error fetching lists');
       alert('There was an error retrieving your list. Please try again.');
       dispatch({
         type: FETCH_LIST_FAIL,
