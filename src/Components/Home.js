@@ -11,11 +11,7 @@ function Home() {
   return (
     <div className="Home">
     <Header />
-    <nav>
-        {loggedIn && <Link to="/home">Home</Link>}
-    </nav>
       <ItemList />
-
     <Footer />
     </div>
   );

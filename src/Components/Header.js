@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { Button } from 'reactstrap';
+import { token } from '../utils/axiosWithAuth';
 
 function Header() {
+  const loggedIn = token;
+
   return (
     <div className="Header">
       <header>
@@ -14,6 +17,9 @@ function Header() {
             </li>
             <li>
               <Link to="/register"><h3>Sign up</h3></Link>
+            </li>
+            <li>
+              {loggedIn && <Link to="/home">Home</Link>}
             </li>
             <li>
               <Button onClick = {() => {
