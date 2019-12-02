@@ -7,7 +7,7 @@ function ItemForm(props) {
     {
       name: '',
       description: '',
-      deadline: null,
+      deadline: '',
       comments: []
     }
   )

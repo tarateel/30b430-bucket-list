@@ -4,11 +4,22 @@ import { fetchList } from '../actions/itemActions';
 import ItemForm from './ItemForm';
 import Item from './Item';
 
+const initList = {
+  name: '',
+  description: '',
+  deadline: null,
+  is_private: true,
+  created_by: '',
+  comments: [],
+  items: ''
+};
+
 const ItemList = (props) => {
+  console.log(props, 'ItemList.js, line 11');
+  // eslint-disable-next-line
   useEffect((props) => {
     props.fetchList()
   }, []);
-  console.log(props, 'ItemList.js, line 11');
 
   return (
     <div className="items">
@@ -21,7 +32,7 @@ const ItemList = (props) => {
 const mapStateToProps = state => {
   return {
     item: state.item,
-    fetchList: state.fetchList,
+    fetchLists: state.fetchLists,
     error: state.error
   }
 };

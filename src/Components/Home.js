@@ -1,22 +1,26 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import store from '../store';
-import ItemList from '../Components/ItemList';
-import Header from '../Components/Header';
-import Routes from '../Components/Routes';
-import Footer from '../Components/Footer';
+import React from "react";
+import { withRouter, Link } from 'react-router-dom';
+import { token } from '../utils/axiosWithAuth';
+import Header from "./Header";
+import Footer from './Footer';
+import ItemList from './ItemList';
+import ItemForm from './ItemForm';
 
 function Home() {
+  const loggedIn = token;
+
   return (
-    <Provider store={store}>
-      <div className="App">
-        <Header />
-        <ItemList />
-        <Routes />
-        <Footer />
-      </div>
-    </Provider>
+    <div className="Home">
+    <Header />
+    <nav>
+        {loggedIn && <Link to="/home">Home</Link>}
+    </nav>
+      <ItemList />
+      <ItemForm />
+
+    <Footer />
+    </div>
   );
 }
 
-export default Home;
+export default withRouter(Home);

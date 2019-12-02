@@ -9,7 +9,7 @@
 
 import axios from "axios";
 
-const token = localStorage.getItem("token");
+export const token = localStorage.getItem("token");
 
 const axiosWithAuth = () => {
 

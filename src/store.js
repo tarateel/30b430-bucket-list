@@ -4,17 +4,11 @@ import logger from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { itemReducer } from './reducers/itemReducer'
 
-const initialState = {};
+const middleware = [thunk, logger];
 
-const store = createStore(
+export default createStore(
   itemReducer,
-  initialState,
   composeWithDevTools(
-    applyMiddleware(
-      thunk,
-      logger
-    )
+    applyMiddleware(...middleware)
   )
 );
-
-export default store;
