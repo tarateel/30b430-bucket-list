@@ -11,6 +11,7 @@ const ItemList = props => {
   // eslint-disable-next-line
   useEffect(() => {
     props.fetchLists()
+    // eslint-disable-next-line
   }, []);
 
   return (

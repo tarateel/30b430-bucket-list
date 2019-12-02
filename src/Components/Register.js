@@ -12,6 +12,7 @@ const Register = ({ touched, errors, status, handleSubmit }) => {
       setRegister([...register, status]);
       localStorage.setItem("loggedIn", "true");
     }
+    // eslint-disable-next-line
   }, [status]);
 
   return (
