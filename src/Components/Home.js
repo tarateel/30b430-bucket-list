@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import { token } from '../utils/axiosWithAuth';
+// import { Link } from 'react-router-dom';
+// import { token } from '../utils/axiosWithAuth';
 import Header from "./Header";
 import Footer from './Footer';
 import ItemList from './ItemList';
 
 function Home() {
-  const loggedIn = token;
 
   return (
     <div className="Home">
